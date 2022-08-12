@@ -3,9 +3,10 @@
     <!-- adding data binding to seamlessly allow the js and html to work together with less steps than vanilla js -->
     <!-- this v-if is conditional rendering and is looking to check if the value of show_post is true or false -->
     <!-- the button has a form of event listening on it that when clicked will react to the true/false value and either display or remove the blog  -->
-    <h1 v-if="show_post === true">{{ blog_title }}</h1>
-    <p v-if="show_post === true">{{ blog_content }}</p>
-    <img v-if="show_post === true" :src="blog_image_url" alt="" />
+   <article v-if="show_post === true"></article>
+   <h1>{{ blog_title }}</h1>
+    <p>{{ blog_content }}</p>
+    <img :src="blog_image_url" alt="" />
     <button @click="toggleBlog">on/off</button>
   </div>
 </template>
@@ -14,6 +15,10 @@
 export default {
   //   this is the function that the button is using
   methods: {
+
+    // shortcut
+    // toggleBlog() this.show_post = !this.show_post
+    
     toggleBlog() {
       if (this.show_post === true) {
         this.show_post = false;
